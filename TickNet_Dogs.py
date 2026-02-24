@@ -24,7 +24,7 @@ def get_args():
     Parse the command line arguments.
     """
     parser = argparse.ArgumentParser(description='TickNet training script for cifar and StanfordDogs datasets.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)    
-    parser.add_argument('-r', '--data-root', type=str, default='../../../datasets/StanfordDogs', help='Dataset root path.')
+    parser.add_argument('-r', '--data-root', type=str, default='model', help='Dataset root path.')
     #parser.add_argument('-d', '--dataset', choices=['cifar10', 'cifar100', 'dogs'], required=True, help='Dataset name.')
     parser.add_argument('-d', '--dataset', type=str, choices=['cifar10', 'cifar100', 'dogs'], default='dogs', help='Dataset name.')
     parser.add_argument('--download', action='store_true', help='Download the specified dataset before running the training.')    
@@ -169,7 +169,7 @@ def main():
     torch.autograd.set_detect_anomaly(True)     
     
     #arr_typesize = ['large', 'small']
-    arr_typesize = ['small']
+    arr_typesize = ['large']
     for typesize in arr_typesize:    
         strmode = 'StanfordDogs_TickNet_' + typesize + '_SE'  
         pathout = './checkpoints/' + strmode
